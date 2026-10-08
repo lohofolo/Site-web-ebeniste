@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Kouassi Armand | Artisan Ébéniste d'Art & Créateur de Mobilier Contemporain</title>
+  <meta name="description" content="Portfolio officiel de Kouassi Armand, maître artisan ébéniste indépendant. Mobilier architectural sur-mesure, assemblages traditionnels d'exception et essences nobles (Iroko, Ébène, Noyer). Abidjan & International.">
+  <meta name="keywords" content="ébéniste, ébénisterie d'art, mobilier sur mesure, artisan ivoirien, Kouassi Armand, bois massif, noyer, iroko, ébène, design contemporain, agencement de luxe">
+  <meta name="author" content="Kouassi Armand">
+  
+  <!-- Open Graph / Meta Réseaux Sociaux -->
+  <meta property="og:title" content="Kouassi Armand | Artisan Ébéniste d'Art">
+  <meta property="og:description" content="Mobilier contemporain sur-mesure & pièces d'exception façonnées à la main.">
+  <meta property="og:image" content="assets/artisan-portrait.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Inter, Playfair Display, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP 3 & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-charcoal text-cream antialiased selection:bg-gold selection:text-charcoal overflow-x-hidden">
+
+  <!-- SVG Global Noise Overlay Filter (0.05 opacity as per design system) -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <svg class="noise-filter-svg" aria-hidden="true">
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" />
+    </filter>
+  </svg>
+
+  <!-- ========================================================================= -->
+  <!-- A. NAVBAR — "La Signature Flottante"                                      -->
+  <!-- ========================================================================= -->
+  <header class="navbar-wrapper" id="navbarWrapper">
+    <nav class="nav-pill" id="navbarPill" aria-label="Navigation Principale">
+      <!-- Logo / Initiales -->
+      <a href="#hero" class="nav-logo" id="navLogo" aria-label="Retour à l'accueil">
+        <span class="logo-mark">KA</span>
+        <span class="logo-text">Kouassi Armand</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="nav-links">
+        <a href="#about" class="nav-link">À Propos</a>
+        <a href="#works" class="nav-link">Réalisations</a>
+        <a href="#experience" class="nav-link">Parcours</a>
+        <a href="#skills" class="nav-link">Savoir-Faire</a>
+        <a href="#wood-species" class="nav-link">Essences</a>
+        <a href="#estimator" class="nav-link">Devis Express</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <button type="button" class="btn-artisan-admin" id="btnNavAdmin" aria-label="Espace gestion du catalogue">
+          <i data-lucide="sliders"></i>
+          <span>Gestion Atelier</span>
+        </button>
+
+        <button type="button" class="btn-cv-download" id="btnOpenCvModal" aria-label="Consulter et télécharger le CV">
+          <i data-lucide="file-badge"></i>
+          <span>CV & Portfolio</span>
+        </button>
+
+        <!-- Mobile Burger Trigger -->
+        <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <span class="logo-mark">KA</span>
+        <span>Atelier Kouassi</span>
+      </div>
+      <button type="button" class="drawer-close" id="drawerClose" aria-label="Fermer le menu">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="drawer-links">
+      <a href="#hero" class="drawer-link">Accueil</a>
+      <a href="#about" class="drawer-link">À Propos & Philosophie</a>
+      <a href="#works" class="drawer-link">Galerie de Mobilier</a>
+      <a href="#experience" class="drawer-link">Parcours & Expérience</a>
+      <a href="#skills" class="drawer-link">Maîtrise & Compétences</a>
+      <a href="#wood-species" class="drawer-link">Essences Nobles</a>
+      <a href="#estimator" class="drawer-link">Simulateur de Devis</a>
+      <a href="#works" class="drawer-link" id="btnDrawerAdmin">
+        <i data-lucide="sliders" class="text-gold"></i>
+        <span>Mode Gestion Atelier (Ajouter/Supprimer)</span>
+      </a>
+      <a href="#contact" class="drawer-link">Prendre Contact</a>
+    </div>
+    <div class="drawer-footer">
+      <button type="button" class="btn-gold w-full text-center" id="btnMobileCv">
+        <i data-lucide="download"></i>
+        <span>Télécharger Dossier & CV (PDF)</span>
+      </button>
+      <div class="drawer-status">
+        <span class="status-pulse-dot"></span>
+        <span class="font-mono text-xs">Atelier ouvert aux commandes sur-mesure</span>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- ========================================================================= -->
+  <!-- B. SECTION HERO — "La Première Impression"                               -->
+  <!-- ========================================================================= -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-texture" style="background-image: url('assets/table-iroko-walnut.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-ambient-glow"></div>
+
+    <div class="container hero-container">
+      <div class="hero-badge-wrapper gsap-hero-el">
+        <div class="status-pill">
+          <span class="status-pulse-dot"></span>
+          <span class="font-mono text-xs text-gold">DISPONIBLE POUR PROJETS PRIVÉS & ARCHITECTURE</span>
+        </div>
+      </div>
+
+      <div class="hero-layout">
+        <!-- Photo de Profil d'Ébéniste d'Élite -->
+        <div class="hero-portrait-col gsap-hero-el">
+          <div class="portrait-frame">
+            <img src="assets/artisan-portrait.jpg" alt="Kouassi Armand, artisan ébéniste d'art" class="portrait-img" loading="eager">
+            <div class="portrait-badge">
+              <i data-lucide="award" class="text-gold"></i>
+              <span>Maître Artisan</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Titres et Textes -->
+        <div class="hero-content-col">
+          <p class="hero-eyebrow font-mono gsap-hero-el">ATELIER D'ÉBÉNISTERIE CONTEMPORAINE & MOBILIER D'ART</p>
+          <h1 class="hero-title gsap-hero-el">KOUASSI ARMAND</h1>
+          <p class="hero-subtitle gsap-hero-el font-serif italic text-gold">
+            Artisan Ébéniste d'Art & Créateur de Mobilier d'Exception
+          </p>
+          <p class="hero-lead gsap-hero-el">
+            Après des années d’exigence au sein d'ateliers d’agencement de prestige, je façonne désormais <strong>à mon propre compte</strong> des pièces uniques et du mobilier architectural. Chaque création magnifie les bois nobles d’Afrique et d’Europe par des assemblages séculaires invisibles et un design pur.
+          </p>
+
+          <!-- 3 Stats en Monospace (Preset B rules) -->
+          <div class="hero-stats-row gsap-hero-el font-mono">
+            <div class="stat-item">
+              <span class="stat-number">12+</span>
+              <span class="stat-label">Années d'Expérience</span>
+            </div>
+            <div class="stat-separator">|</div>
+            <div class="stat-item">
+              <span class="stat-number">85+</span>
+              <span class="stat-label">Pièces Signées</span>
+            </div>
+            <div class="stat-separator">|</div>
+            <div class="stat-item">
+              <span class="stat-number">Abidjan</span>
+              <span class="stat-label">Rayonnement Mondial</span>
+            </div>
+          </div>
+
+          <!-- CTAs Magnétiques -->
+          <div class="hero-cta-group gsap-hero-el">
+            <a href="#works" class="btn-magnetic btn-gold">
+              <i data-lucide="eye"></i>
+              <span>Découvrir les Œuvres</span>
+            </a>
+            <a href="#contact" class="btn-magnetic btn-outline">
+              <i data-lucide="compass"></i>
+              <span>Commander une Pièce</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#about" class="hero-scroll-indicator" aria-label="Défiler vers la section À Propos">
+        <span class="font-mono text-xs text-muted">DÉCOUVRIR L'HISTOIRE</span>
+        <i data-lucide="chevron-down" class="text-gold animate-bounce"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- C. SECTION À PROPOS — "Le Manifeste de l'Artisan"                         -->
+  <!-- ========================================================================= -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Colonne Gauche : Titre Dramatique Serif Italique -->
+        <div class="about-left-col gsap-about-reveal">
+          <span class="section-tag font-mono text-gold">MANIFESTE & VISION</span>
+          <h2 class="about-heading font-serif italic text-gold">
+            La noblesse du bois brut sculptée par la patience de la main.
+          </h2>
+          <div class="about-quote-box">
+            <p class="font-serif italic text-cream">
+              « Le bois est une matière vivante qui garde la mémoire du vent et du temps. Mon rôle n'est pas de le dompter, mais d'honorer son âme en lui offrant des lignes éternelles. »
+            </p>
+            <span class="font-mono text-xs text-muted">— Kouassi Armand</span>
+          </div>
+
+          <!-- Mini carte atelier -->
+          <div class="atelier-card">
+            <div class="atelier-icon">
+              <i data-lucide="sparkles" class="text-gold"></i>
+            </div>
+            <div>
+              <h4 class="font-sans font-bold text-cream">Atelier Indépendant</h4>
+              <p class="text-sm text-muted">Création en série très limitée et commandes privées exclusives sans intermédiaire.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ligne Séparatrice Accent Or -->
+        <div class="about-separator" aria-hidden="true"></div>
+
+        <!-- Colonne Droite : Présentation Textuelle & Médias -->
+        <div class="about-right-col gsap-about-reveal">
+          <p class="about-text-lead text-cream">
+            Ébéniste et designer indépendant, je crée du mobilier architectural aux lignes épurées et géométriques, associant bois massifs certifiés, laiton brossé et finitions naturelles pour des intérieurs raffinés.
+          </p>
+          <p class="about-text-body text-muted">
+            Formé à la rigueur de l'ébénisterie d'art et fort de plus d'une décennie passée à restaurer et confectionner des ouvrages monumentaux pour des prescripteurs de renom, j'ai choisi de bâtir mon propre atelier pour renouer avec la quintessence du geste artisanal. Travailler à mon propre compte me permet d'accorder à chaque assemblage le temps qu'il mérite, sans compromis industriel.
+          </p>
+          <p class="about-text-body text-muted">
+            Mon atelier fait dialoguer le patrimoine sylvicole ivoirien (l’Iroko impérial, l’Ébène profonde, le Fraké rubané) avec les plus beaux spécimens européens (le Noyer sombre de France, le Chêne séculaire). Chaque pièce est conçue pour traverser les générations avec élégance.
+          </p>
+
+          <!-- Photographie de l'assemblage traditionnel en atelier -->
+          <div class="about-feature-img-card">
+            <img src="assets/assemblage-bois-detail.jpg" alt="Détail de queue d'aronde façonnée à la main" class="about-detail-img">
+            <div class="feature-img-caption">
+              <span class="font-mono text-xs text-gold">ASSEMBLAGE EN QUEUE D'ARONDE TRADITIONNELLE</span>
+              <p class="text-xs text-muted">Ajustage au dixième de millimètre sans aucune visserie métallique apparente.</p>
+            </div>
+          </div>
+
+          <!-- Engagements Clés -->
+          <div class="commitments-row">
+            <div class="commitment-pill">
+              <i data-lucide="check-circle-2" class="text-gold"></i>
+              <span>Bois Massifs 100% Éco-Certifiés</span>
+            </div>
+            <div class="commitment-pill">
+              <i data-lucide="check-circle-2" class="text-gold"></i>
+              <span>Finitions Huilées Naturelles Sans COV</span>
+            </div>
+            <div class="commitment-pill">
+              <i data-lucide="check-circle-2" class="text-gold"></i>
+              <span>Chaque Œuvre Numérotée & Signée</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- D. SECTION RÉALISATIONS — "Galerie du Mobilier d'Art"                     -->
+  <!-- ========================================================================= -->
+  <section class="section works-section" id="works">
+    <div class="container">
+      <div class="section-header text-center gsap-section-title">
+        <span class="section-tag font-mono text-gold">PORTFOLIO DE CRÉATIONS</span>
+        <h2 class="section-title">Mobilier d'Exception & Pièces Signées</h2>
+        <p class="section-subtitle font-serif italic text-muted">
+          Une sélection de créations emblématiques façonnées au cœur de l'atelier
+        </p>
+      </div>
+
+      <!-- Barre d'Administration / Espace Artisan pour Gérer les Meubles -->
+      <div class="artisan-admin-bar" id="artisanAdminBar">
+        <div class="admin-bar-status">
+          <div class="admin-mode-toggle-group">
+            <label class="switch-toggle" for="adminModeCheckbox">
+              <input type="checkbox" id="adminModeCheckbox" aria-label="Activer le mode gestion atelier">
+              <span class="switch-slider"></span>
+            </label>
+            <div class="admin-status-text">
+              <span class="font-mono text-xs text-gold uppercase font-bold" id="adminModeStatusLabel">MODE VISITEUR</span>
+              <span class="text-xs text-muted block">Activer pour ajouter ou supprimer des meubles</span>
+            </div>
+          </div>
+          <div class="admin-catalog-count font-mono text-xs">
+            <span class="count-badge" id="worksCountBadge">4 œuvres au catalogue</span>
+          </div>
+        </div>
+
+        <div class="admin-actions-group hidden" id="adminActionsGroup">
+          <button type="button" class="btn-magnetic btn-gold btn-sm" id="btnOpenAddModal">
+            <i data-lucide="plus-circle"></i>
+            <span>Ajouter une Création</span>
+          </button>
+          <button type="button" class="btn-magnetic btn-outline btn-sm text-xs" id="btnResetDefaultWorks" title="Restaurer les créations initiales de l'atelier">
+            <i data-lucide="rotate-ccw"></i>
+            <span>Réinitialiser</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filtres Interactifs -->
+      <div class="works-filters" id="worksFilters">
+        <button type="button" class="filter-btn active" data-filter="all">Toutes les pièces</button>
+        <button type="button" class="filter-btn" data-filter="tables">Tables & Consoles</button>
+        <button type="button" class="filter-btn" data-filter="rangements">Buffets & Ébénisterie</button>
+        <button type="button" class="filter-btn" data-filter="assises">Assises Sculpturales</button>
+        <button type="button" class="filter-btn" data-filter="details">Art du Détail</button>
+      </div>
+
+      <!-- Grille des Œuvres (Gérée dynamiquement par JavaScript avec ajout et suppression) -->
+      <div class="works-grid" id="worksGrid">
+        <!-- Les créations sont injectées ici dynamiquement depuis le catalogue -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- E. SECTION EXPÉRIENCE — "La Timeline Vivante"                             -->
+  <!-- ========================================================================= -->
+  <section class="section experience-section" id="experience">
+    <div class="container">
+      <div class="section-header text-center gsap-section-title">
+        <span class="section-tag font-mono text-gold">PARCOURS D'EXCELLENCE</span>
+        <h2 class="section-title">De l'Apprentissage Rigoureux à l'Atelier Indépendant</h2>
+        <p class="section-subtitle font-serif italic text-muted">
+          Une décennie forgée dans les ateliers les plus exigeants avant de créer à mon propre compte.
+        </p>
+      </div>
+
+      <!-- Timeline Centrée (Desktop) & Colonne Mobile -->
+      <div class="timeline-container">
+        <div class="timeline-spine-line" aria-hidden="true"></div>
+
+        <!-- Étape 1 : Fondateur & Maître Artisan Indépendant (2024 - Présent) -->
+        <div class="timeline-item timeline-left gsap-timeline-card">
+          <div class="timeline-dot">
+            <div class="dot-inner"></div>
+            <div class="dot-pulse"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-period font-mono text-gold">2024 — PRÉSENT</span>
+              <span class="timeline-badge">ÉTAPE ACTUELLE</span>
+            </div>
+            <h3 class="timeline-role font-sans font-bold text-cream">Fondateur & Maître Artisan Ébéniste</h3>
+            <h4 class="timeline-company text-gold font-serif italic">Maison Kouassi Atelier — Création Indépendante</h4>
+            <p class="timeline-desc text-muted">
+              Lancement officiel de mon propre atelier d’ébénisterie d’art. Conception intégrale et fabrication sur-mesure de pièces uniques pour collectionneurs privés, hôtels de charme et architectes d'intérieur de renommée internationale. Maîtrise totale de la chaîne de valeur, du billot d'arbre brut à la livraison finale.
+            </p>
+            <div class="timeline-skills-pills">
+              <span>Mobilier Signature</span>
+              <span>Commandes Privées</span>
+              <span>Essences Rares</span>
+              <span>Direct Clientèle</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Étape 2 : Chef d'Atelier & Ébéniste Concepteur (2019 - 2024) -->
+        <div class="timeline-item timeline-right gsap-timeline-card">
+          <div class="timeline-dot">
+            <div class="dot-inner"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-period font-mono text-gold">2019 — 2024</span>
+              <span class="timeline-badge-past">5 ANS D'ATELIER</span>
+            </div>
+            <h3 class="timeline-role font-sans font-bold text-cream">Chef d'Atelier & Ébéniste Concepteur</h3>
+            <h4 class="timeline-company text-gold font-serif italic">Grands Ateliers d’Agencement & Mobilier Haut de Gamme</h4>
+            <p class="timeline-desc text-muted">
+              Direction technique et réalisation d’ouvrages complexes en bois précieux et marqueterie contemporaine. Encadrement d'une équipe de 6 artisans, prototypage de solutions d’assemblage invisible pour des résidences de prestige à Abidjan, Paris et Dakar.
+            </p>
+            <div class="timeline-skills-pills">
+              <span>Agencement Monumental</span>
+              <span>Coordination d'Atelier</span>
+              <span>Marqueterie</span>
+              <span>Calepinage 3D</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Étape 3 : Compagnon Ébéniste & Restaurateur (2014 - 2019) -->
+        <div class="timeline-item timeline-left gsap-timeline-card">
+          <div class="timeline-dot">
+            <div class="dot-inner"></div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-period font-mono text-gold">2014 — 2019</span>
+              <span class="timeline-badge-past">5 ANS DE FORMATION PRATIQUE</span>
+            </div>
+            <h3 class="timeline-role font-sans font-bold text-cream">Compagnon Ébéniste & Restaurateur de Mobilier</h3>
+            <h4 class="timeline-company text-gold font-serif italic">Ateliers d’Ébénisterie Traditionnelle & Préservation</h4>
+            <p class="timeline-desc text-muted">
+              Apprentissage approfondi des gestes séculaires : taille de tenons-mortaises, queues-d'aronde manuelles, placage à chaud à la colle d’os, fabrication de vernis au tampon sur mobilier d’art et répliques patrimoniales. Développement d'une sensibilité tactile d'exception.
+            </p>
+            <div class="timeline-skills-pills">
+              <span>Assemblages à la Main</span>
+              <span>Vernis au Tampon</span>
+              <span>Restauration d'Époque</span>
+              <span>Ajustage Méticuleux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- F. SECTION COMPÉTENCES — "Le Tableau de Bord de l'Excellence"             -->
+  <!-- ========================================================================= -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-header text-center gsap-section-title">
+        <span class="section-tag font-mono text-gold">MAÎTRISE TECHNIQUE & ARTISANALE</span>
+        <h2 class="section-title">Tableau de Bord des Savoir-Faire</h2>
+        <p class="section-subtitle font-serif italic text-muted">
+          Une alchimie entre la rigueur millimétrique du geste et la créativité spatiale contemporaine.
+        </p>
+      </div>
+
+      <!-- Grille de Maîtrise avec Jauges Circulaires SVG Animées (Pattern 2 de GIMINI.md) -->
+      <div class="skills-dashboard-grid">
+        <!-- Compétence 1 -->
+        <div class="skill-meter-card gsap-skill-card" data-percent="98">
+          <div class="gauge-wrapper">
+            <svg class="circular-gauge" viewBox="0 0 120 120">
+              <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="gauge-bar" cx="60" cy="60" r="50" style="stroke-dashoffset: 314;"></circle>
+            </svg>
+            <div class="gauge-label font-mono">
+              <span class="counter-num">0</span>%
+            </div>
+          </div>
+          <div class="skill-info">
+            <h3 class="skill-name">Ébénisterie d'Art & Assemblages Secrets</h3>
+            <p class="skill-sub text-muted">Queues d'aronde manuelles, embrèvements, tenons chevillés sans métal apparent.</p>
+          </div>
+        </div>
+
+        <!-- Compétence 2 -->
+        <div class="skill-meter-card gsap-skill-card" data-percent="96">
+          <div class="gauge-wrapper">
+            <svg class="circular-gauge" viewBox="0 0 120 120">
+              <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="gauge-bar" cx="60" cy="60" r="50" style="stroke-dashoffset: 314;"></circle>
+            </svg>
+            <div class="gauge-label font-mono">
+              <span class="counter-num">0</span>%
+            </div>
+          </div>
+          <div class="skill-info">
+            <h3 class="skill-name">Mobilier Architectural Sur-Mesure</h3>
+            <p class="skill-sub text-muted">Intégration d'éléments sculpturaux dans les espaces luxueux, bibliothèques monumentales.</p>
+          </div>
+        </div>
+
+        <!-- Compétence 3 -->
+        <div class="skill-meter-card gsap-skill-card" data-percent="95">
+          <div class="gauge-wrapper">
+            <svg class="circular-gauge" viewBox="0 0 120 120">
+              <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="gauge-bar" cx="60" cy="60" r="50" style="stroke-dashoffset: 314;"></circle>
+            </svg>
+            <div class="gauge-label font-mono">
+              <span class="counter-num">0</span>%
+            </div>
+          </div>
+          <div class="skill-info">
+            <h3 class="skill-name">Sélection & Travail des Essences Nobles</h3>
+            <p class="skill-sub text-muted">Maîtrise du séchage, de la fibre et de la réaction hygrométrique des bois tropicaux et européens.</p>
+          </div>
+        </div>
+
+        <!-- Compétence 4 -->
+        <div class="skill-meter-card gsap-skill-card" data-percent="92">
+          <div class="gauge-wrapper">
+            <svg class="circular-gauge" viewBox="0 0 120 120">
+              <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="gauge-bar" cx="60" cy="60" r="50" style="stroke-dashoffset: 314;"></circle>
+            </svg>
+            <div class="gauge-label font-mono">
+              <span class="counter-num">0</span>%
+            </div>
+          </div>
+          <div class="skill-info">
+            <h3 class="skill-name">Finitions Naturelles & Vernis au Tampon</h3>
+            <p class="skill-sub text-muted">Huiles végétales biosourcées, cires d'abeille brutes, poli miroir traditionnel français.</p>
+          </div>
+        </div>
+
+        <!-- Compétence 5 -->
+        <div class="skill-meter-card gsap-skill-card" data-percent="90">
+          <div class="gauge-wrapper">
+            <svg class="circular-gauge" viewBox="0 0 120 120">
+              <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="gauge-bar" cx="60" cy="60" r="50" style="stroke-dashoffset: 314;"></circle>
+            </svg>
+            <div class="gauge-label font-mono">
+              <span class="counter-num">0</span>%
+            </div>
+          </div>
+          <div class="skill-info">
+            <h3 class="skill-name">Incrustation Métaux & Matériaux Mixtes</h3>
+            <p class="skill-sub text-muted">Filets de laiton brossé, bronze coulé, marbre veiné et cuir pleine fleur sellier.</p>
+          </div>
+        </div>
+
+        <!-- Compétence 6 (Bonus Agencement) -->
+        <div class="skill-meter-card gsap-skill-card" data-percent="94">
+          <div class="gauge-wrapper">
+            <svg class="circular-gauge" viewBox="0 0 120 120">
+              <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="gauge-bar" cx="60" cy="60" r="50" style="stroke-dashoffset: 314;"></circle>
+            </svg>
+            <div class="gauge-label font-mono">
+              <span class="counter-num">0</span>%
+            </div>
+          </div>
+          <div class="skill-info">
+            <h3 class="skill-name">Conception CAO 3D & Plans d'Atelier</h3>
+            <p class="skill-sub text-muted">Échanges fluides avec les architectes et projection réaliste avant lancement du rabotage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- G. SECTION ESSENCES DE BOIS — "La Palette Vivante de la Matière"          -->
+  <!-- ========================================================================= -->
+  <section class="section wood-section" id="wood-species">
+    <div class="container">
+      <div class="section-header text-center gsap-section-title">
+        <span class="section-tag font-mono text-gold">MATIÈRES PREMIÈRES D'EXCEPTION</span>
+        <h2 class="section-title">Les Essences Sublimées à l'Atelier</h2>
+        <p class="section-subtitle font-serif italic text-muted">
+          Chaque veinage raconte une géographie, une densité et un toucher unique.
+        </p>
+      </div>
+
+      <div class="wood-grid">
+        <!-- Essence 1 : Iroko Doré -->
+        <div class="wood-card gsap-wood-card">
+          <div class="wood-header">
+            <span class="wood-grain-icon" style="background: linear-gradient(135deg, #b8860b 0%, #6d4c18 100%);"></span>
+            <div>
+              <h3 class="wood-name">Iroko Impérial</h3>
+              <span class="font-mono text-xs text-gold">Origine : Côte d'Ivoire</span>
+            </div>
+          </div>
+          <p class="wood-text text-muted">Bois africain d'une densité exceptionnelle. Teinte ambrée aux reflets dorés chauds, imputrescible et extrêmement résistant aux variations de température.</p>
+          <div class="wood-traits font-mono">
+            <span>Dureté : ★★★★★</span>
+            <span>Usage : Tables, Mobilier Extérieur & Intérieur</span>
+          </div>
+        </div>
+
+        <!-- Essence 2 : Ébène Royal -->
+        <div class="wood-card gsap-wood-card">
+          <div class="wood-header">
+            <span class="wood-grain-icon" style="background: linear-gradient(135deg, #1f1f24 0%, #08080a 100%);"></span>
+            <div>
+              <h3 class="wood-name">Ébène Noire du Gabon</h3>
+              <span class="font-mono text-xs text-gold">Origine : Afrique Centrale</span>
+            </div>
+          </div>
+          <p class="wood-text text-muted">Le joyau noir de l'ébénisterie d'art. Grain ultra-fin, texture dense comme du marbre, permettant un poli miroir sans équivalent pour les poignées et inserts.</p>
+          <div class="wood-traits font-mono">
+            <span>Dureté : ★★★★★</span>
+            <span>Usage : Incrustations, Boutons, Placages Précieux</span>
+          </div>
+        </div>
+
+        <!-- Essence 3 : Noyer Français -->
+        <div class="wood-card gsap-wood-card">
+          <div class="wood-header">
+            <span class="wood-grain-icon" style="background: linear-gradient(135deg, #5c4033 0%, #2f1e14 100%);"></span>
+            <div>
+              <h3 class="wood-name">Noyer Français Ancien</h3>
+              <span class="font-mono text-xs text-gold">Origine : Forêts Tempérées</span>
+            </div>
+          </div>
+          <p class="wood-text text-muted">Veinage spectaculaire aux nuances chocolat et rubanées. Toucher soyeux et sensualité incomparable pour les plateaux de tables et les bureaux de maître.</p>
+          <div class="wood-traits font-mono">
+            <span>Dureté : ★★★★☆</span>
+            <span>Usage : Bureaux, Tables Repas, Assises</span>
+          </div>
+        </div>
+
+        <!-- Essence 4 : Fraké & Laiton -->
+        <div class="wood-card gsap-wood-card">
+          <div class="wood-header">
+            <span class="wood-grain-icon" style="background: linear-gradient(135deg, #d2a679 0%, #8c5836 100%);"></span>
+            <div>
+              <h3 class="wood-name">Fraké & Laiton Brossé</h3>
+              <span class="font-mono text-xs text-gold">Origine : Forêts Éco-gérées</span>
+            </div>
+          </div>
+          <p class="wood-text text-muted">Contraste graphique intense entre le bois clair tigré et les reflets du métal chaud. Idéal pour les façades de meubles contemporains et consoles d'entrée.</p>
+          <div class="wood-traits font-mono">
+            <span>Dureté : ★★★★☆</span>
+            <span>Usage : Enfilades, Consoles, Panneaux Muraux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- H. SECTION FORMATION & DISTINCTIONS — "Les Fondations"                     -->
+  <!-- ========================================================================= -->
+  <section class="section education-section" id="education">
+    <div class="container">
+      <div class="section-header text-center gsap-section-title">
+        <span class="section-tag font-mono text-gold">PARCOURS ACADÉMIQUE & PRIX</span>
+        <h2 class="section-title">Les Fondations de la Maîtrise</h2>
+        <p class="section-subtitle font-serif italic text-muted">
+          La transmission rigoureuse des maîtres ébénistes alliée à la recherche contemporaine.
+        </p>
+      </div>
+
+      <div class="education-grid">
+        <div class="education-card gsap-edu-card">
+          <div class="edu-year font-mono text-gold">2023</div>
+          <div class="edu-body">
+            <h3 class="edu-degree">Prix d'Excellence Métiers d'Art & Design Contemporain</h3>
+            <p class="edu-school text-muted">Fédération de l'Artisanat & Salon International du Mobilier d'Afrique</p>
+            <p class="edu-desc text-sm">Distinction attribuée pour l'innovation dans l'assemblage de l'Iroko massif et du laiton brossé sans fixation visible.</p>
+          </div>
+        </div>
+
+        <div class="education-card gsap-edu-card">
+          <div class="edu-year font-mono text-gold">2014</div>
+          <div class="edu-body">
+            <h3 class="edu-degree">Diplôme des Métiers d’Art (DMA) — Ébénisterie & Création</h3>
+            <p class="edu-school text-muted">Centre d'Excellence des Arts du Bois & Ébénisterie Contemporaine</p>
+            <p class="edu-desc text-sm">Major de promotion. Mémoire de fin d'études sur la réinterprétation des assises statutaires ouest-africaines en bois précieux.</p>
+          </div>
+        </div>
+
+        <div class="education-card gsap-edu-card">
+          <div class="edu-year font-mono text-gold">2012</div>
+          <div class="edu-body">
+            <h3 class="edu-degree">Brevet des Métiers d'Art (BMA) — Art du Meuble & Finitions</h3>
+            <p class="edu-school text-muted">Institut Supérieur des Métiers du Patrimoine</p>
+            <p class="edu-desc text-sm">Apprentissage de la géométrie descriptive, du tracé d'épure, du placage et des vernis naturels à l'ancienne.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- I. ESTIMATEUR DE PROJET INTERACTIF — "Devis Express"                      -->
+  <!-- ========================================================================= -->
+  <section class="section estimator-section" id="estimator">
+    <div class="container">
+      <div class="estimator-box">
+        <div class="estimator-header text-center">
+          <span class="section-tag font-mono text-gold">CONFIGURATEUR SUR-MESURE</span>
+          <h2 class="estimator-title font-sans">Simulez Votre Projet de Mobilier</h2>
+          <p class="font-serif italic text-muted">
+            Sélectionnez les caractéristiques de votre pièce pour obtenir une première estimation indicative et un brief d'atelier prêt à partager.
+          </p>
+        </div>
+
+        <div class="estimator-body">
+          <div class="estimator-controls">
+            <!-- Choix du Type de Meuble -->
+            <div class="control-group">
+              <label class="control-label font-mono text-sm text-gold">1. TYPE DE PIÈCE</label>
+              <div class="options-pills" id="furnitureTypeOptions">
+                <button type="button" class="opt-btn active" data-val="table" data-base="1800">Table de Repas / Banquet</button>
+                <button type="button" class="opt-btn" data-val="enfilade" data-base="2400">Enfilade / Buffet Sculpté</button>
+                <button type="button" class="opt-btn" data-val="fauteuil" data-base="1100">Fauteuil Architectural</button>
+                <button type="button" class="opt-btn" data-val="bibliotheque" data-base="3200">Bibliothèque / Agencement</button>
+              </div>
+            </div>
+
+            <!-- Choix de l'Essence -->
+            <div class="control-group">
+              <label class="control-label font-mono text-sm text-gold">2. ESSENCE DE BOIS PRINCIPALE</label>
+              <div class="options-pills" id="woodTypeOptions">
+                <button type="button" class="opt-btn active" data-val="iroko" data-multiplier="1.0">Iroko Massif Ivoire</button>
+                <button type="button" class="opt-btn" data-val="noyer" data-multiplier="1.3">Noyer Français Précieux (+30%)</button>
+                <button type="button" class="opt-btn" data-val="ebene" data-multiplier="1.6">Ébène & Bois d'Apparat (+60%)</button>
+                <button type="button" class="opt-btn" data-val="chene" data-multiplier="1.15">Chêne Massif Brossé (+15%)</button>
+              </div>
+            </div>
+
+            <!-- Finitions & Détails Métal -->
+            <div class="control-group">
+              <label class="control-label font-mono text-sm text-gold">3. FINITIONS PARTICULIÈRES</label>
+              <div class="options-checkboxes" id="finishOptions">
+                <label class="check-pill">
+                  <input type="checkbox" id="checkBrass" value="350">
+                  <span>Incrustations Filets de Laiton Brossé</span>
+                </label>
+                <label class="check-pill">
+                  <input type="checkbox" id="checkVernis" value="250">
+                  <span>Vernis d'Art au Tampon Artisanal</span>
+                </label>
+                <label class="check-pill">
+                  <input type="checkbox" id="checkCustom3D" value="200" checked>
+                  <span>Étude & Modélisation 3D Personnalisée</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Résultat & Action Directe -->
+          <div class="estimator-result-card">
+            <span class="font-mono text-xs text-muted">ESTIMATION INDICATIVE ATELIER</span>
+            <div class="estimate-price-display">
+              <span class="estimate-currency">À partir de</span>
+              <span class="estimate-amount font-mono text-gold" id="estimateAmount">2 000 €</span>
+              <span class="estimate-cfa font-mono text-xs text-muted" id="estimateAmountCFA">~ 1 310 000 FCFA</span>
+            </div>
+            <p class="estimate-note text-xs text-muted">
+              Délai de confection en atelier : <strong>4 à 6 semaines</strong> selon la complexité et les temps de stabilisation du bois noble.
+            </p>
+            <div class="estimator-actions">
+              <button type="button" class="btn-magnetic btn-gold w-full text-center" id="btnSendEstimateWhatsapp">
+                <i data-lucide="message-circle"></i>
+                <span>Valider le Brief sur WhatsApp</span>
+              </button>
+              <a href="#contact" class="btn-magnetic btn-outline w-full text-center">
+                <span>Remplir le Formulaire Détaillé</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- J. SECTION CONTACT — "Le Pont vers l'Atelier"                              -->
+  <!-- ========================================================================= -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Informations & Liens Sociaux -->
+        <div class="contact-info-col gsap-contact-reveal">
+          <span class="section-tag font-mono text-gold">COLLABORATION DIRECTE</span>
+          <h2 class="contact-title font-serif italic text-gold">
+            Façonnons une pièce unique pour votre intérieur.
+          </h2>
+          <p class="contact-intro text-cream">
+            Que vous soyez un particulier en quête d'une table familiale d'exception ou un architecte d'intérieur concevant un espace de prestige, mon atelier vous accueille pour concevoir votre mobilier sur-mesure.
+          </p>
+
+          <!-- Liste des Moyens de Contact -->
+          <div class="contact-methods">
+            <!-- Téléphone / WhatsApp -->
+            <a href="https://wa.me/2250789451200?text=Bonjour%20Kouassi,%20je%20souhaite%20échanger%20sur%20un%20projet%20de%20mobilier%20sur-mesure." target="_blank" rel="noopener noreferrer" class="contact-method-card">
+              <div class="method-icon">
+                <i data-lucide="message-circle" class="text-gold"></i>
+              </div>
+              <div class="method-details">
+                <span class="method-label font-mono text-xs text-gold">WHATSAPP DIRECT ATELIER</span>
+                <span class="method-val">+225 07 89 45 12 00</span>
+                <span class="text-xs text-muted">Réponse sous 24h & photos d'atelier en direct</span>
+              </div>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:kouassi.ebeniste@gmail.com" class="contact-method-card">
+              <div class="method-icon">
+                <i data-lucide="mail" class="text-gold"></i>
+              </div>
+              <div class="method-details">
+                <span class="method-label font-mono text-xs text-gold">EMAIL PROFESSIONNEL</span>
+                <span class="method-val">kouassi.ebeniste@gmail.com</span>
+                <span class="text-xs text-muted">Envoi de plans, croquis et cahiers des charges</span>
+              </div>
+            </a>
+
+            <!-- Atelier Physique -->
+            <div class="contact-method-card">
+              <div class="method-icon">
+                <i data-lucide="map-pin" class="text-gold"></i>
+              </div>
+              <div class="method-details">
+                <span class="method-label font-mono text-xs text-gold">ATELIER & SHOWROOM</span>
+                <span class="method-val">Atelier Kouassi — Zone Artisanale d'Art, Boulevard de Marseille, Abidjan</span>
+                <span class="text-xs text-muted">Visites sur rendez-vous privilégié</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Liens Réseaux Sociaux -->
+          <div class="social-links-row">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Atelier">
+              <i data-lucide="instagram"></i>
+              <span>@atelier.kouassi.ebeniste</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Professionnel">
+              <i data-lucide="linkedin"></i>
+              <span>Kouassi Armand</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulaire de Demande de Devis -->
+        <div class="contact-form-col gsap-contact-reveal">
+          <div class="form-container">
+            <h3 class="form-title font-sans">Parlez-moi de votre projet</h3>
+            <p class="form-subtitle text-sm text-muted">Remplissez ces quelques lignes pour recevoir une proposition d'atelier sur-mesure.</p>
+
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="userName" class="form-label font-mono text-xs">VOTRE NOM & PRÉNOM *</label>
+                <input type="text" id="userName" name="name" required placeholder="Ex. Jean-Marc Koffi" class="form-input">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="userEmail" class="form-label font-mono text-xs">VOTRE EMAIL *</label>
+                  <input type="email" id="userEmail" name="email" required placeholder="nom@exemple.com" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label for="userPhone" class="form-label font-mono text-xs">TÉLÉPHONE / WHATSAPP</label>
+                  <input type="tel" id="userPhone" name="phone" placeholder="+225 ..." class="form-input">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="projectNature" class="form-label font-mono text-xs">NATURE DE LA CRÉATION</label>
+                <select id="projectNature" name="nature" class="form-input">
+                  <option value="table">Table de salle à manger ou réception</option>
+                  <option value="buffet">Enfilade, buffet ou meuble de rangement</option>
+                  <option value="assise">Fauteuil ou assise architecturale</option>
+                  <option value="agencement">Agencement complet & bibliothèque murale</option>
+                  <option value="autre">Pièce d'art unique sur-mesure</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="userMessage" class="form-label font-mono text-xs">VOTRE MESSAGE & DÉTAILS *</label>
+                <textarea id="userMessage" name="message" rows="4" required placeholder="Décrivez les dimensions approximatives, l'ambiance recherchée, votre ville de livraison..." class="form-input"></textarea>
+              </div>
+
+              <button type="submit" class="btn-magnetic btn-gold w-full text-center" id="btnSubmitForm">
+                <i data-lucide="send"></i>
+                <span>Transmettre ma Demande</span>
+              </button>
+
+              <div class="form-feedback hidden" id="formFeedback">
+                <i data-lucide="check-circle" class="text-gold"></i>
+                <span>Merci ! Votre message a bien été transmis à Kouassi Armand. Vous serez recontacté sous 24h.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- K. MODALE DÉTAIL D'ŒUVRE (LIGHTBOX EXPÉRIENTIELLE)                         -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="workModalBackdrop" aria-hidden="true">
+    <div class="modal-dialog" id="workModalDialog" role="dialog" aria-modal="true" aria-labelledby="modalWorkTitle">
+      <button type="button" class="modal-close-btn" id="btnWorkModalClose" aria-label="Fermer la vue détaillée">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="modal-body-layout">
+        <div class="modal-media-col">
+          <img src="" alt="" class="modal-work-img" id="modalWorkImg">
+        </div>
+        <div class="modal-content-col">
+          <span class="font-mono text-xs text-gold" id="modalWorkBadge">PIÈCE SIGNÉE</span>
+          <h2 class="modal-work-title font-sans font-bold" id="modalWorkTitle">Titre de l'Œuvre</h2>
+          <p class="font-serif italic text-gold text-sm" id="modalWorkMaterials">Matériaux & Essences</p>
+          <div class="modal-work-desc text-muted" id="modalWorkDesc">Description complète de la pièce.</div>
+          <div class="modal-work-specs font-mono text-xs text-cream" id="modalWorkSpecs"></div>
+          <div class="modal-actions-group">
+            <a href="#contact" class="btn-gold" id="btnModalOrder">Commander une pièce similaire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- K2. MODALE D'AJOUT D'UNE CRÉATION (ESPACE ARTISAN)                       -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="addWorkModalBackdrop" aria-hidden="true">
+    <div class="modal-dialog add-work-dialog" id="addWorkDialog" role="dialog" aria-modal="true" aria-labelledby="modalAddTitle">
+      <button type="button" class="modal-close-btn" id="btnAddModalClose" aria-label="Fermer">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="add-work-content">
+        <div class="add-work-header">
+          <span class="font-mono text-xs text-gold uppercase tracking-wider">ESPACE ARTISAN • CATALOGUE</span>
+          <h2 id="modalAddTitle" class="text-2xl font-bold font-sans text-cream mt-1">Ajouter une Nouvelle Création</h2>
+          <p class="text-xs text-muted mt-1">Publiez immédiatement un nouveau meuble façonné dans votre atelier avec ses caractéristiques et sa photo.</p>
+        </div>
+
+        <form id="addWorkForm" class="add-work-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="newWorkTitle" class="form-label font-mono text-xs">TITRE DE LA PIÈCE *</label>
+              <input type="text" id="newWorkTitle" required placeholder="Ex. Console « Baoulé » en Noyer & Laiton" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="newWorkCategory" class="form-label font-mono text-xs">CATÉGORIE *</label>
+              <select id="newWorkCategory" required class="form-input">
+                <option value="tables">Tables & Consoles</option>
+                <option value="rangements">Buffets & Ébénisterie</option>
+                <option value="assises">Assises Sculpturales</option>
+                <option value="details">Art du Détail & Éléments Décoratifs</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="newWorkEssences" class="form-label font-mono text-xs">ESSENCES DE BOIS *</label>
+              <input type="text" id="newWorkEssences" required placeholder="Ex. Iroko Massif & Noyer Noir" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="newWorkMaterials" class="form-label font-mono text-xs">MATÉRIAUX SECONDAIRES</label>
+              <input type="text" id="newWorkMaterials" placeholder="Ex. Laiton Brossé, Cuir Pleine Fleur..." class="form-input">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="newWorkDimensions" class="form-label font-mono text-xs">DIMENSIONS</label>
+              <input type="text" id="newWorkDimensions" placeholder="Ex. 210 × 95 × 75 cm" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="newWorkBadge" class="form-label font-mono text-xs">BADGE D'ATELIER</label>
+              <select id="newWorkBadge" class="form-input">
+                <option value="PIÈCE UNIQUE SIGNÉE">PIÈCE UNIQUE SIGNÉE</option>
+                <option value="CRÉATION SUR-MESURE">CRÉATION SUR-MESURE</option>
+                <option value="ÉDITION LIMITÉE">ÉDITION LIMITÉE</option>
+                <option value="NOUVEAUTÉ ATELIER">NOUVEAUTÉ ATELIER</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Section Image & Upload -->
+          <div class="form-group">
+            <label class="form-label font-mono text-xs">PHOTOGRAPHIE DE L'ŒUVRE *</label>
+            <div class="image-upload-wrapper">
+              <div class="image-dropzone" id="imageDropzone">
+                <input type="file" id="newWorkFileInput" accept="image/*" class="file-input-hidden">
+                <label for="newWorkFileInput" class="dropzone-label">
+                  <i data-lucide="upload-cloud" class="text-gold text-2xl"></i>
+                  <span class="text-sm font-semibold text-cream">Choisir une photo depuis votre appareil</span>
+                  <span class="text-xs text-muted">Format JPG, PNG ou WebP (téléphone ou ordinateur)</span>
+                </label>
+              </div>
+
+              <!-- Prévisualisation Image -->
+              <div class="image-preview-container" id="imagePreviewContainer">
+                <img src="assets/table-iroko-walnut.jpg" alt="Aperçu du meuble" id="imagePreviewImg" class="image-preview-thumbnail">
+                <div class="preview-overlay-info font-mono text-xs text-gold">Aperçu en direct</div>
+              </div>
+            </div>
+
+            <!-- Choix rapide d'images d'atelier pré-intégrées -->
+            <div class="presets-img-row mt-2">
+              <span class="font-mono text-xs text-muted block mb-1">Ou sélectionner un cliché d'atelier :</span>
+              <div class="preset-chips">
+                <button type="button" class="preset-chip active" data-src="assets/table-iroko-walnut.jpg">Table Iroko</button>
+                <button type="button" class="preset-chip" data-src="assets/credenza-ebene-noble.jpg">Enfilade Ébène</button>
+                <button type="button" class="preset-chip" data-src="assets/fauteuil-sculptural.jpg">Fauteuil Kôh</button>
+                <button type="button" class="preset-chip" data-src="assets/assemblage-bois-detail.jpg">Assemblage d'Art</button>
+              </div>
+            </div>
+            
+            <input type="hidden" id="newWorkFinalImage" value="assets/table-iroko-walnut.jpg">
+          </div>
+
+          <div class="form-group">
+            <label for="newWorkDesc" class="form-label font-mono text-xs">DESCRIPTION DÉTAILLÉE DE L'ŒUVRE *</label>
+            <textarea id="newWorkDesc" rows="3" required placeholder="Décrivez les inspirations, les spécificités des assemblages et l'émotion de la pièce..." class="form-input"></textarea>
+          </div>
+
+          <div class="add-work-actions">
+            <button type="button" class="btn-magnetic btn-outline" id="btnCancelAdd">
+              <span>Annuler</span>
+            </button>
+            <button type="submit" class="btn-magnetic btn-gold" id="btnSubmitNewWork">
+              <i data-lucide="check"></i>
+              <span>Enregistrer & Publier dans le Catalogue</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- K3. MODALE DE CONFIRMATION DE SUPPRESSION                                -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="confirmDeleteModalBackdrop" aria-hidden="true">
+    <div class="modal-dialog confirm-delete-dialog" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+      <div class="confirm-delete-content">
+        <div class="delete-icon-circle">
+          <i data-lucide="trash-2" class="text-red-500"></i>
+        </div>
+        <h3 id="deleteModalTitle" class="text-xl font-bold font-sans text-cream mt-2">Supprimer ce meuble ?</h3>
+        <p class="text-sm text-muted mt-2" id="deleteModalMessage">
+          Êtes-vous certain de vouloir retirer la pièce <strong id="deleteTargetTitle" class="text-gold">« »</strong> du catalogue de l'atelier ?
+        </p>
+        
+        <div class="delete-thumbnail-preview mt-3" id="deleteThumbnailContainer">
+          <img src="" alt="" id="deleteTargetImg" class="delete-thumb-img">
+        </div>
+
+        <div class="delete-modal-actions mt-4">
+          <button type="button" class="btn-magnetic btn-outline" id="btnCancelDelete">
+            <span>Annuler</span>
+          </button>
+          <button type="button" class="btn-magnetic btn-danger" id="btnConfirmDelete">
+            <i data-lucide="trash-2"></i>
+            <span>Oui, Supprimer Définitivement</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- TOAST NOTIFICATION FLOTTANTE                                              -->
+  <!-- ========================================================================= -->
+  <div class="toast-notification" id="toastNotification" aria-live="polite">
+    <div class="toast-icon" id="toastIcon">
+      <i data-lucide="check-circle-2"></i>
+    </div>
+    <div class="toast-body">
+      <span class="toast-title font-sans font-bold" id="toastTitle">Succès</span>
+      <span class="toast-desc text-xs text-muted" id="toastDesc">Action enregistrée</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- L. MODALE DOSSIER CV & BROCHURE ARTISAN                                   -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="cvModalBackdrop" aria-hidden="true">
+    <div class="modal-dialog cv-modal-dialog" id="cvModalDialog" role="dialog" aria-modal="true" aria-labelledby="modalCvTitle">
+      <button type="button" class="modal-close-btn" id="btnCvModalClose" aria-label="Fermer">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="cv-document-preview">
+        <!-- Header Document -->
+        <div class="cv-doc-header">
+          <div class="cv-doc-brand">
+            <span class="logo-mark">KA</span>
+            <div>
+              <h2 id="modalCvTitle" class="text-lg font-bold text-cream">KOUASSI ARMAND</h2>
+              <p class="font-serif italic text-xs text-gold">Artisan Ébéniste d'Art & Créateur de Mobilier Contemporain</p>
+            </div>
+          </div>
+          <div class="cv-doc-contact font-mono text-xs text-muted text-right">
+            <div>Abidjan, Côte d'Ivoire</div>
+            <div>+225 07 89 45 12 00</div>
+            <div>kouassi.ebeniste@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="cv-doc-divider"></div>
+
+        <!-- Corps Synthèse -->
+        <div class="cv-doc-section">
+          <h4 class="font-mono text-xs text-gold uppercase tracking-wider mb-2">Profil & Philosophie</h4>
+          <p class="text-sm text-muted leading-relaxed">
+            Ébéniste et designer indépendant, alliant 12 années d'expérience en atelier haut de gamme et maîtrise des essences précieuses (Iroko, Ébène, Noyer). Créateur à son propre compte de mobilier architectural sur-mesure pour clients privés et prescripteurs d'exception.
+          </p>
+        </div>
+
+        <div class="cv-doc-section">
+          <h4 class="font-mono text-xs text-gold uppercase tracking-wider mb-2">Parcours Professionnel</h4>
+          <div class="cv-doc-entry">
+            <div class="flex justify-between text-xs font-mono">
+              <strong class="text-cream">Maison Kouassi Atelier — Fondateur & Maître Artisan</strong>
+              <span class="text-gold">2024 - Présent</span>
+            </div>
+            <p class="text-xs text-muted mt-1">Création indépendante de mobilier d'art, commandes exclusives, pièces numérotées.</p>
+          </div>
+          <div class="cv-doc-entry mt-2">
+            <div class="flex justify-between text-xs font-mono">
+              <strong class="text-cream">Grands Ateliers d'Agencement — Chef d'Atelier</strong>
+              <span class="text-gold">2019 - 2024</span>
+            </div>
+            <p class="text-xs text-muted mt-1">Supervision de pièces monumentales, hôtels de luxe et résidences d'ambassade.</p>
+          </div>
+          <div class="cv-doc-entry mt-2">
+            <div class="flex justify-between text-xs font-mono">
+              <strong class="text-cream">Ateliers d'Ébénisterie Traditionnelle — Compagnon</strong>
+              <span class="text-gold">2014 - 2019</span>
+            </div>
+            <p class="text-xs text-muted mt-1">Queues d'aronde manuelles, assemblages cachés, vernis au tampon.</p>
+          </div>
+        </div>
+
+        <div class="cv-doc-section">
+          <h4 class="font-mono text-xs text-gold uppercase tracking-wider mb-2">Compétences Phares</h4>
+          <div class="cv-doc-skills-grid font-mono text-xs">
+            <span>• Ébénisterie d'Art (98%)</span>
+            <span>• Mobilier Architectural (96%)</span>
+            <span>• Essences Nobles & Iroko (95%)</span>
+            <span>• Vernis & Finitions Naturelles (92%)</span>
+            <span>• Incrustation Métaux / Laiton (90%)</span>
+            <span>• Modélisation 3D / CAO (94%)</span>
+          </div>
+        </div>
+
+        <!-- Footer modal actions -->
+        <div class="cv-doc-actions flex items-center justify-between pt-4 border-t border-border">
+          <span class="font-mono text-xs text-muted">Dossier Certifié • Atelier Kouassi</span>
+          <div class="flex gap-3">
+            <button type="button" class="btn-outline text-xs py-2 px-4" id="btnPrintCv">
+              <i data-lucide="printer"></i>
+              <span>Imprimer / PDF</span>
+            </button>
+            <a href="mailto:kouassi.ebeniste@gmail.com?subject=Demande%20de%20dossier%20complet%20Atelier%20Kouassi" class="btn-gold text-xs py-2 px-4">
+              <i data-lucide="download"></i>
+              <span>Recevoir par Email</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- M. PIED DE PAGE — "La Signature Finale"                                   -->
+  <!-- ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-mark">KA</span>
+          <div>
+            <h3 class="font-sans font-bold text-cream text-lg">KOUASSI ARMAND</h3>
+            <p class="font-serif italic text-xs text-gold">Ébénisterie d'Art Contemporaine • Abidjan</p>
+          </div>
+        </div>
+
+        <div class="footer-availability">
+          <span class="status-pulse-dot"></span>
+          <span class="font-mono text-xs text-cream">Atelier Ouvert — Disponibilité pour projets 2026/2027</span>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p class="font-mono text-xs text-muted">
+          © 2026 Kouassi Armand. Tous droits réservés. Façonné avec exigence et passion du bois noble.
+        </p>
+        <div class="footer-links font-mono text-xs text-muted">
+          <a href="#hero">Retour en Haut ↑</a>
+          <span>•</span>
+          <a href="#contact">Prendre Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Principal -->
+  <script src="app.js"></script>
+  <script>
+    // Initialisation des icônes Lucide
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
